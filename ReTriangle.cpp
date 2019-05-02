@@ -40,3 +40,4 @@ void refuntion(int n, int x, int y){
 	refuntion(n/2,x-(n/2),y+(n/2));
 	refuntion(n/2,x+(n/2),y+(n/2));
 }
+//출처 : https://andamiro25.tistory.com/76
