@@ -38,7 +38,7 @@ class Tree {
 		Tree(T data){
 			root = new TreeNode<T>(data);	
 		}
-		void insert(int n){
+		void insert(T n){
 			insertNode(new TreeNode<int>(n));
 		}
 		void insertNode(TreeNode<T> * child){
@@ -61,7 +61,7 @@ class Tree {
 				}
 				
 				if(parent->data> child->data){
-					parent -> left = child;// 왜 current로 바로 넣으면 안되지?? 
+					parent -> left = child;// 왜 current로 바로 넣으면 안되지?? 보호 목적? 
 				}
 				else{
 					current -> right = child;
@@ -120,16 +120,17 @@ class Tree {
 		
 	
 };
+
 int main(void){
 	int n;
 
 	cout<<"넣을 숫자를 입력해 주세요";
 	cin>>n;
-	Tree <int> tree = new Tree<int>(n);
+	Tree <int> tree(n);//? 왜지? 일단 Tree <int> tree = new <int>Tree(n) 하니까 안됬었음 
 	
 	for(int i=0;i<10;i++){
 		cin>>n;
-		Tree::tree.insert(n);
+		Tree<int>::tree.insert(n);
 	}
 	
 }
