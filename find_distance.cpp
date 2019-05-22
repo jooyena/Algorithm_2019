@@ -5,7 +5,6 @@ int main(void){
 	int r,c,n;//r 행 c 열 
 	std::cin>>n>>r>>c;
 	std::cout<<function(r,c,0,pow(2,n)/2);
-
 }
 int function(int r, int c, int count, int size){
 	if(size<1) return count;
