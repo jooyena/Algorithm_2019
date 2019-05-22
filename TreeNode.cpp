@@ -126,7 +126,7 @@ int main(void){
 
 	cout<<"넣을 숫자를 입력해 주세요";
 	cin>>n;
-	Tree <int> tree(n);//? 왜지? 일단 Tree <int> tree = new <int>Tree(n) 하니까 안됬었음 
+	Tree <int> tree(n);//? 왜지? 일단 Tree <int> tree = new <int>Tree(n) 하니까 아닌가?///
 	
 	for(int i=0;i<10;i++){
 		cin>>n;
