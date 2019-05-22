@@ -2,7 +2,7 @@
 #include<math.h>
 int main(void){
 	int function(int r, int c, int count, int size);
-	int r,c,n;//r Çà c ¿­ 
+	int r,c,n;//r í–‰ c ì—´ 
 	std::cin>>n>>r>>c;
 	std::cout<<function(r,c,0,pow(2,n)/2);
 
@@ -10,16 +10,16 @@ int main(void){
 int function(int r, int c, int count, int size){
 	if(size<1) return count;
 	
-	if(r<size&&c<size)//1»çºÐ¸é 
+	if(r<size&&c<size)//1ì‚¬ë¶„ë©´ 
 		return function(r,c,count,size/2);
 	
-	if(r<size&&c>=size)//2»çºÐ¸é 
+	if(r<size&&c>=size)//2ì‚¬ë¶„ë©´ 
 		return function(r,c-size,count+pow(size,2),size/2);
 	 	
-	if(r>=size&&c<size)//3»çºÐ¸é 
+	if(r>=size&&c<size)//3ì‚¬ë¶„ë©´ 
 		return function(r-size,c,count+pow(size,2)*2,size/2);
 		
-	if(r>=size&&c>=size)//4»çºÐ¸é 
+	if(r>=size&&c>=size)//4ì‚¬ë¶„ë©´ 
 		return function(r-size,c-size,count+pow(size,2)*3,size/2);
 	
 }
