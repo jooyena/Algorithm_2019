@@ -17,7 +17,7 @@ public:
         this->left = left;
         this->right = right;
     }
- //ÀÌÇØ ¾È°£´Ù...   
+ //ì´ë¶€ë¶„
     friend ostream& operator<<(ostream& os, const TreeNode<T>& node) {
         os << "[data] " << node.data << endl;
         if (node.left != null) {
@@ -27,13 +27,13 @@ public:
             os << "[right] " << node.right->data << endl;
         }
         return os;
-    } //ÀÌ°Ô ¹»±î..... 
+    } //-------------------
 };
 
 template <typename T>
 class Tree {
 	private:
-		TreeNode <T> * root;//°è¼ÓÇØ¼­ ÀúÀåÇÒ ³ëµå 
+		TreeNode <T> * root;//ê³„ì†í•´ì„œ ì €ì¥í•  ë…¸ë“œ 
 	public:
 		Tree(T data){
 			root = new TreeNode<T>(data);	
@@ -42,26 +42,24 @@ class Tree {
 			insertNode(new TreeNode<int>(n));
 		}
 		void insertNode(TreeNode<T> * child){
-			//1. ¸Ç Ã³À½ ·çÆ® ³ëµåÀÎÁö È®ÀÎÇÑ´Ù
-			//2. Áßº¹ÀÌ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù. 
-			//3. ÀÓ½Ã TreeNode·Î ÀÚ¸®¸¦ Àâ´Â´Ù 
+			//1. ë§¨ ì²˜ìŒ ë£¨íŠ¸ ë…¸ë“œì¸ì§€ í™•ì¸í•œë‹¤
+			//2. ì¤‘ë³µì´ ìˆëŠ”ì§€ í™•ì¸í•œë‹¤. 
+			//3. ì„ì‹œ TreeNodeë¡œ ìë¦¬ë¥¼ ì¡ëŠ”ë‹¤ 
 			if(search(*root,child -> data)==null){
 				TreeNode <T> * current=root;
 				TreeNode <T> * parent = null;
 				
 				while(current=!null){
-					parent = current;//±»ÀÌ ÀÌ·¸°Ô ¹ŞÀ» ÀÌÀ¯°¡ ÀÖ³ª?
-					//===================================================// 
+					parent = current;
 					
 					if(current->data > child->data){
 						current = current -> left;
-						//Æ÷ÀÎÅÍ¸¦ ¾´ ÀÌÀ¯°¡ ´ÙÀ½ÁÖ¼Ò¸¦ °¡¸£Å°´Â °Å°í ½ÇÁ¦ ´ëÀÔ(?) ÀÌ ¾Æ´Ï±â ¶§¹®
 					}
 					else current = current ->right;
 				}
 				
 				if(parent->data> child->data){
-					parent -> left = child;// ¿Ö current·Î ¹Ù·Î ³ÖÀ¸¸é ¾ÈµÇÁö?? º¸È£ ¸ñÀû? 
+					parent -> left = child; 
 				}
 				else{
 					current -> right = child;
@@ -70,7 +68,7 @@ class Tree {
 			
 		}
 		
-		/* ³»°¡ ¾´ ¿ÍÀÏ ¹® search 
+		/* ë‚´ê°€ ì“´ ì™€ì¼ ë¬¸ search 
 		TreeNode <T> * search(TreeNode<T> * root,  T data){
 			if(root == null) return null;
 			while(root =!null){
@@ -124,9 +122,9 @@ class Tree {
 int main(void){
 	int n;
 
-	cout<<"³ÖÀ» ¼ıÀÚ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä";
+	cout<<"ë„£ì„ ìˆ«ìë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”";
 	cin>>n;
-	Tree <int> tree(n);//? ¿ÖÁö? ÀÏ´Ü Tree <int> tree = new <int>Tree(n) ÇÏ´Ï±î ¾Æ´Ñ°¡?///
+	Tree <int> tree(n);//? ì™œì§€? ì¼ë‹¨ Tree <int> tree = new <int>Tree(n) í•˜ë‹ˆê¹Œ ì•„ë‹Œê°€?///
 	
 	for(int i=0;i<10;i++){
 		cin>>n;
