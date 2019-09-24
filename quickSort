@@ -1,0 +1,47 @@
+#include<iostream>
+
+int data[10]={2,5,7,8,9,4,6,3,10,1};
+using namespace std;
+void quickSort(int array[], int start, int end){
+   int pivot = start ; //피벗값 지정. 
+   int i=start+1;
+   int j=end;
+   
+   if(start>=end) return;// 시작과 끝이 만나면 반환 
+   
+   while(j>=i){
+   	
+   	//pivot 값보다 작으면 증가 
+      while(array[pivot]>=array[i]&&i<=end){
+         i++; 
+      } 
+    //pivot 값보다 크면 감소 
+      while(array[pivot]<=array[j]&&j>start){
+         j--;
+      }
+    //시작 포인트가 엔드 포인트 보다 크다면 pivot과 엔드 포인트를 교환  pivot이 바뀌면 새로 다시 시작 
+      if(i>j){
+         swap(array[pivot],array[j]);
+         
+      }
+      //시작포인트가 엔트 포인트 보다 작다면 서로 교환 
+      else{
+         swap(array[i],array[j]);
+      }
+   }
+   //이 while을 통과했다는건 pivot 바뀌었다는 것을 의미. 
+   quickSort(array,start,j-1);
+   quickSort(array,j+1,end);
+   cout<<pivot<<endl;
+
+}
+int main (void){
+   
+   quickSort(data,0,9);
+   
+   for(int i=0; i<10; i++){
+      printf("%d ", array[i]);
+   }
+   
+   return 0;
+}
